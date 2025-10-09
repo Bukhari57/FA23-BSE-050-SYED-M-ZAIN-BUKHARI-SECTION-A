@@ -1,34 +1,31 @@
-# 🎲 Dice Game – Flutter App  
+# 🎲 Dice Game – Flutter App
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter&logoColor=white" />
-  <img src="https://img.shields.io/badge/Dart-2.x-blue?logo=dart&logoColor=white" />
-  <img src="https://img.shields.io/badge/Platform-Android%20%7C%20iOS-green?logo=android&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-Stable-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/Flutter-v%20Latest-blue?logo=flutter&logoColor=white" />
+  <img src="https://img.shields.io/badge/Dart-v%20Latest-blue?logo=dart&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platforms-Android%20|%20iOS-green?logo=android&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Stable-success" />
 </p>
 
 ---
 
-## 🧩 Overview  
+## 🧩 Overview
 
-**Dice Game** is a simple, fun, and interactive Flutter app that brings the excitement of dice rolling to your phone.  
-It supports **2–4 players**, multiple rounds, and an automatic **scoreboard + winner announcement**.  
-
-Built with clarity, performance, and simplicity in mind — perfect for beginners exploring Flutter state management and UI design.  
+**Dice Game** is a lightweight Flutter application where 2–4 players roll dice across multiple rounds.  
+Scores accumulate and the winner is announced at the end.  
+Designed with simplicity, readability, and ease of use in mind.
 
 ---
 
-## 📸 Screenshots  
+## 📸 Screenshots
 
-| 🎮 Home Screen | 🏆 Winner Screen |
-|:---------------:|:----------------:|
+| Home Screen | Winner Screen |
+|:------------:|:--------------:|
 | ![Home Screen](https://github.com/user-attachments/assets/38909303-9156-4de4-8aac-205cb3af3e35) | ![Winner Screen](https://github.com/user-attachments/assets/ecab87bf-1f76-41bb-86ee-9ca49e071100) |
 
-> 📱 *Clean and responsive UI design with material components.*
-
 ---
 
-## 🎥 Demo Video  
+## 🎥 Demo Video
 
 <p align="center">
   <a href="https://github.com/user-attachments/assets/a99adfc3-08dd-4ac1-9d21-c362793dad4b" target="_blank">
@@ -36,35 +33,34 @@ Built with clarity, performance, and simplicity in mind — perfect for beginner
   </a>
 </p>
 
-> ▶️ *Click the icon above to watch the recorded gameplay demo.*
+> ▶️ Click the icon above to view the demo.
 
 ---
 
-## ✨ Features  
+## ✨ Features
 
-✅ 2–4 Player Support  
-🎲 Animated Dice Roll with Random Logic  
-📊 Live Scoreboard + Winner Highlight  
-🔁 Multiple Rounds (Up to 5)  
-🧠 Beginner-Friendly Code (Fully Commented)  
-🎨 Simple Yet Modern Material UI  
-
----
-
-## 🛠️ Tech Stack  
-
-| Tool | Purpose |
-|------|----------|
-| **Flutter** | Frontend UI Framework |
-| **Dart** | Programming Language |
-| **Material Design** | App UI Components |
-| **Google Fonts (Optional)** | Stylish Typography |
+- ✅ 2 to 4 players  
+- 🎲 Dice roll animations & random values  
+- 📊 Live scoreboard  
+- 🔁 5 rounds per game  
+- 🏆 Winner announcement  
+- 🧩 Clean, commented code for learning
 
 ---
 
-## 🚀 Getting Started  
+## 🛠️ Tech Stack
 
-### 1️⃣ Clone the Repository  
-```bash
-git clone https://github.com/yourusername/dice_game.git
-cd dice_game
+| Technology | Usage |
+|------------|-------|
+| Flutter / Dart | Frontend app & logic |
+| Material Design | UI components & layout |
+| (Optional) Google Fonts | Stylish text appearance |
+
+---
+
+## 🚀 Getting Started
+
+1. Clone your repo:
+   ```bash
+   git clone https://github.com/Bukhari57/FA23-BSE-050-SYED-M-ZAIN-BUKHARI-SECTION-A.git
+   cd FA23-BSE-050-SYED-M-ZAIN-BUKHARI-SECTION-A/dice_app
