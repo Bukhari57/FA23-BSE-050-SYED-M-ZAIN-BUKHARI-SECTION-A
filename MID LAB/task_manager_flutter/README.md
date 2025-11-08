@@ -2,7 +2,29 @@
 
 A comprehensive Flutter task management application with SQLite database, local notifications, and export functionality.
 
-## Features
+---
+
+## 🖼️ App Screenshots
+
+### 🆕 New Task Screen
+Create and manage new tasks with due date, time, notification, and repeat options.
+![NEW TASK](https://github.com/user-attachments/assets/37b00fb6-7200-41c9-8abd-5a6424028b24)
+
+### 📅 Today's Tasks
+View all tasks scheduled for today with progress tracking and quick access.
+![TODAYS TASK](https://github.com/user-attachments/assets/758f5317-96d8-4c1d-8f79-5d7848158668)
+
+### ✅ Completed Tasks
+Track completed tasks and review your productivity.
+![COMPLETED TASK](https://github.com/user-attachments/assets/1480d62d-b19a-4a53-8da3-bf568242fc5e)
+
+### ⚙️ Settings
+Customize app theme, preferences, and notification settings.
+![SETTINGS](https://github.com/user-attachments/assets/395578aa-8d4a-40f4-8f43-86e70c0ac22f)
+
+---
+
+## 🚀 Features
 
 ### Core Functionality
 - **Task Management**: Create, edit, delete, and complete tasks
@@ -18,8 +40,9 @@ A comprehensive Flutter task management application with SQLite database, local 
 - **Task Details**: Detailed view with subtask progress
 - **Custom Repeat**: Set tasks to repeat on specific days of the week
 
-## Project Structure
+---
 
+## 📁 Project Structure
 ```
 lib/
 ├── models/
