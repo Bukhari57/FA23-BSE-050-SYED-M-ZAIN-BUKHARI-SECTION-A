@@ -20,7 +20,11 @@ class BMICalculator extends StatelessWidget {
         backgroundColor: Color(0xFF0A0E21),
       ),
     ),
-    home: const InputPage(),
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const InputPage(),
+      '/results': (context) => const ResultsPage(),
+    },
   );
 }
 
@@ -187,12 +191,7 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ResultsPage(),
-                ),
-              );
+              Navigator.pushNamed(context, '/results');
             },
           ),
         ],
