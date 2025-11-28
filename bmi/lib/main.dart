@@ -58,14 +58,14 @@ class _InputPageState extends State<InputPage> {
                   child: ReusableCard(
                     onPress: () => updateGender(Gender.male),
                     colour: selectedGender == Gender.male ? kActiveColor : kInactiveColor,
-                    cardChild: const IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
+                    cardChild: const IconContent(icon: FontAwesomeIcons.male, label: 'MALE'),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     onPress: () => updateGender(Gender.female),
                     colour: selectedGender == Gender.female ? kActiveColor : kInactiveColor,
-                    cardChild: const IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
+                    cardChild: const IconContent(icon: FontAwesomeIcons.female, label: 'FEMALE'),
                   ),
                 ),
               ],
