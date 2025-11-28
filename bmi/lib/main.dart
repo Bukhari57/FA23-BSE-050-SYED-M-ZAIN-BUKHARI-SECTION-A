@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'calculator_brain.dart';
 
 enum Gender { male, female }
 
@@ -20,11 +21,7 @@ class BMICalculator extends StatelessWidget {
         backgroundColor: Color(0xFF0A0E21),
       ),
     ),
-    initialRoute: '/',
-    routes: {
-      '/': (context) => const InputPage(),
-      '/results': (context) => const ResultsPage(),
-    },
+    home: const InputPage(),
   );
 }
 
@@ -191,7 +188,17 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.pushNamed(context, '/results');
+              CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
+                ),
+              );
             },
           ),
         ],
@@ -228,7 +235,11 @@ class BottomButton extends StatelessWidget {
 }
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  const ResultsPage({super.key, required this.bmiResult, required this.resultText, required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -236,8 +247,52 @@ class ResultsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('BMI CALCULATOR'),
       ),
-      body: const Center(
-        child: Text('Results Page'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(15.0),
+              alignment: Alignment.bottomLeft,
+              child: const Text(
+                'Your Result',
+                style: kTitleTextStyle,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 5,
+            child: ReusableCard(
+              colour: kActiveColor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    resultText.toUpperCase(),
+                    style: kResultTextStyle,
+                  ),
+                  Text(
+                    bmiResult,
+                    style: kBMITextStyle,
+                  ),
+                  Text(
+                    interpretation,
+                    textAlign: TextAlign.center,
+                    style: kBodyTextStyle,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          BottomButton(
+            buttonTitle: 'RE-CALCULATE',
+            onTap: () {
+              Navigator.pop(context);
+            },
+          )
+        ],
       ),
     );
   }
