@@ -49,14 +49,18 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => setState(() => selectedGender = Gender.male),
+                    onPress: () => setState(() {
+                      selectedGender = selectedGender == Gender.male ? null : Gender.male;
+                    }),
                     colour: selectedGender == Gender.male ? kActiveColor : kInactiveColor,
                     cardChild: const IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => setState(() => selectedGender = Gender.female),
+                    onPress: () => setState(() {
+                      selectedGender = selectedGender == Gender.female ? null : Gender.female;
+                    }),
                     colour: selectedGender == Gender.female ? kActiveColor : kInactiveColor,
                     cardChild: const IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
