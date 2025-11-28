@@ -37,6 +37,12 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
 
+  void updateGender(Gender gender) {
+    setState(() {
+      selectedGender = selectedGender == gender ? null : gender;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,18 +55,14 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => setState(() {
-                      selectedGender = selectedGender == Gender.male ? null : Gender.male;
-                    }),
+                    onPress: () => updateGender(Gender.male),
                     colour: selectedGender == Gender.male ? kActiveColor : kInactiveColor,
                     cardChild: const IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    onPress: () => setState(() {
-                      selectedGender = selectedGender == Gender.female ? null : Gender.female;
-                    }),
+                    onPress: () => updateGender(Gender.female),
                     colour: selectedGender == Gender.female ? kActiveColor : kInactiveColor,
                     cardChild: const IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
