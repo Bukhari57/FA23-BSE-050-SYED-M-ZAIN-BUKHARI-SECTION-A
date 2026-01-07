@@ -1,6 +1,6 @@
 
-import 'package:f3/models/product.dart';
-import 'package:f3/models/stock_history.dart';
+import 'package:final_project/models/product.dart';
+import 'package:final_project/models/stock_history.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -8,7 +8,7 @@ class StockInOutScreen extends StatefulWidget {
   final Product product;
   final Function(Product) onStockChanged;
 
-  StockInOutScreen({required this.product, required this.onStockChanged});
+  const StockInOutScreen({super.key, required this.product, required this.onStockChanged});
 
   @override
   _StockInOutScreenState createState() => _StockInOutScreenState();
@@ -21,7 +21,7 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
     final quantity = int.tryParse(_quantityController.text);
     if (quantity == null || quantity <= 0) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please enter a valid quantity')),
+        const SnackBar(content: Text('Please enter a valid quantity')),
       );
       return;
     }
@@ -33,7 +33,7 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
       } else {
         if (quantity > widget.product.stock) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Cannot remove more stock than available')),
+            const SnackBar(content: Text('Cannot remove more stock than available')),
           );
           return;
         }
@@ -47,6 +47,7 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
       );
 
       final updatedProduct = Product(
+        id: widget.product.id,
         sku: widget.product.sku,
         name: widget.product.name,
         price: widget.product.price,
@@ -72,34 +73,34 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Current Stock: ${widget.product.stock}', style: TextStyle(fontSize: 20)),
-            SizedBox(height: 20),
+            Text('Current Stock: ${widget.product.stock}', style: const TextStyle(fontSize: 20)),
+            const SizedBox(height: 20),
             TextField(
               controller: _quantityController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Quantity',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () => _updateStock('in'),
-                  child: Text('Stock In'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  child: const Text('Stock In'),
                 ),
                 ElevatedButton(
                   onPressed: () => _updateStock('out'),
-                  child: Text('Stock Out'),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  child: const Text('Stock Out'),
                 ),
               ],
             ),
-            SizedBox(height: 20),
-            Text('Stock History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 20),
+            const Text('Stock History', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             Expanded(
               child: ListView.builder(
                 itemCount: widget.product.stockHistory.length,

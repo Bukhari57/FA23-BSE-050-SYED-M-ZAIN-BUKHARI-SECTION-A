@@ -1,7 +1,7 @@
-import 'package:f2/models/product_model.dart';
-import 'package:f2/models/stock_history_model.dart';
-import 'package:f2/screens/add_edit_product_screen.dart';
-import 'package:f2/screens/stock_history_screen.dart';
+import 'package:final_project/models/product_model.dart';
+import 'package:final_project/models/stock_history_model.dart';
+import 'package:final_project/screens/add_edit_product_screen.dart';
+import 'package:final_project/screens/stock_history_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductListScreen extends StatefulWidget {

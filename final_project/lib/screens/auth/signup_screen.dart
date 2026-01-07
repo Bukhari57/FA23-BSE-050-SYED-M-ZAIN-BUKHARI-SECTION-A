@@ -1,11 +1,13 @@
 
-import 'package:f3/services/auth_service.dart';
-import 'package:f3/screens/product_management/product_list.dart';
+import 'package:final_project/services/auth_service.dart';
+import 'package:final_project/screens/product_management/product_list.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
+
   @override
-  _SignupScreenState createState() => _SignupScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
 class _SignupScreenState extends State<SignupScreen> {
@@ -22,13 +24,14 @@ class _SignupScreenState extends State<SignupScreen> {
         _emailController.text,
         _passwordController.text,
       );
+      if (!mounted) return;
       if (user != null) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => ProductListScreen()),
+          MaterialPageRoute(builder: (context) => const ProductListScreen()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Email already in use')),
+          const SnackBar(content: Text('Email already in use')),
         );
       }
     }
@@ -37,7 +40,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sign Up')),
+      appBar: AppBar(title: const Text('Sign Up')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -46,24 +49,24 @@ class _SignupScreenState extends State<SignupScreen> {
             children: [
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) => value!.isEmpty ? 'Please enter your name' : null,
               ),
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(labelText: 'Email'),
                 validator: (value) => value!.isEmpty ? 'Please enter your email' : null,
               ),
               TextFormField(
                 controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
+                decoration: const InputDecoration(labelText: 'Password'),
                 obscureText: true,
                 validator: (value) => value!.isEmpty ? 'Please enter your password' : null,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _signup,
-                child: Text('Sign Up'),
+                child: const Text('Sign Up'),
               ),
             ],
           ),

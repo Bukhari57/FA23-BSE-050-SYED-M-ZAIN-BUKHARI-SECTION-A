@@ -1,11 +1,11 @@
 
-import 'package:f3/models/product.dart';
+import 'package:final_project/models/product.dart';
 import 'package:flutter/material.dart';
 
 class AddProductScreen extends StatefulWidget {
   final Function(Product) onAddProduct;
 
-  AddProductScreen({required this.onAddProduct});
+  const AddProductScreen({super.key, required this.onAddProduct});
 
   @override
   _AddProductScreenState createState() => _AddProductScreenState();
@@ -24,7 +24,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Product'),
+        title: const Text('Add Product'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,7 +34,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
             children: [
               TextFormField(
                 controller: _skuController,
-                decoration: InputDecoration(labelText: 'SKU'),
+                decoration: const InputDecoration(labelText: 'SKU'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter SKU';
@@ -44,7 +44,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter product name';
@@ -54,7 +54,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _priceController,
-                decoration: InputDecoration(labelText: 'Price'),
+                decoration: const InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -68,7 +68,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _costController,
-                decoration: InputDecoration(labelText: 'Cost'),
+                decoration: const InputDecoration(labelText: 'Cost'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -82,7 +82,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _categoryController,
-                decoration: InputDecoration(labelText: 'Category'),
+                decoration: const InputDecoration(labelText: 'Category'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter category';
@@ -92,7 +92,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
               ),
               TextFormField(
                 controller: _stockController,
-                decoration: InputDecoration(labelText: 'Stock'),
+                decoration: const InputDecoration(labelText: 'Stock'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -104,7 +104,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -120,7 +120,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                     Navigator.pop(context);
                   }
                 },
-                child: Text('Save'),
+                child: const Text('Save'),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:f2/models/product_model.dart';
+import 'package:final_project/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class AddEditProductScreen extends StatefulWidget {

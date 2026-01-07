@@ -1,12 +1,12 @@
 
-import 'package:f3/models/product.dart';
+import 'package:final_project/models/product.dart';
 import 'package:flutter/material.dart';
 
 class EditProductScreen extends StatefulWidget {
   final Product product;
   final Function(Product) onEditProduct;
 
-  EditProductScreen({required this.product, required this.onEditProduct});
+  const EditProductScreen({super.key, required this.product, required this.onEditProduct});
 
   @override
   _EditProductScreenState createState() => _EditProductScreenState();
@@ -36,7 +36,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Product'),
+        title: const Text('Edit Product'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,12 +46,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
             children: [
               TextFormField(
                 controller: _skuController,
-                decoration: InputDecoration(labelText: 'SKU'),
+                decoration: const InputDecoration(labelText: 'SKU'),
                 enabled: false, // SKU is not editable
               ),
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: const InputDecoration(labelText: 'Name'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter product name';
@@ -61,7 +61,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               TextFormField(
                 controller: _priceController,
-                decoration: InputDecoration(labelText: 'Price'),
+                decoration: const InputDecoration(labelText: 'Price'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -75,7 +75,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               TextFormField(
                 controller: _costController,
-                decoration: InputDecoration(labelText: 'Cost'),
+                decoration: const InputDecoration(labelText: 'Cost'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -89,7 +89,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               TextFormField(
                 controller: _categoryController,
-                decoration: InputDecoration(labelText: 'Category'),
+                decoration: const InputDecoration(labelText: 'Category'),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter category';
@@ -99,7 +99,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               TextFormField(
                 controller: _stockController,
-                decoration: InputDecoration(labelText: 'Stock'),
+                decoration: const InputDecoration(labelText: 'Stock'),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -111,11 +111,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     final editedProduct = Product(
+                      id: widget.product.id,
                       sku: _skuController.text,
                       name: _nameController.text,
                       price: double.parse(_priceController.text),
@@ -128,7 +129,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     Navigator.pop(context);
                   }
                 },
-                child: Text('Save'),
+                child: const Text('Save'),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:f2/models/stock_history_model.dart';
+import 'package:final_project/models/stock_history_model.dart';
 
 class Product {
   final String sku;

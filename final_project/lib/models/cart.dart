@@ -1,5 +1,5 @@
 
-import 'package:f3/models/cart_item.dart';
+import 'package:final_project/models/cart_item.dart';
 
 class Cart {
   final List<CartItem> items = [];
