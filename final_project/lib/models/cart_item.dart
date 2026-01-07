@@ -15,20 +15,4 @@ class CartItem {
   double get itemTotal {
     return (priceOverride ?? product.price) * quantity;
   }
-
-  factory CartItem.fromMap(Map<String, dynamic> map) {
-    return CartItem(
-      product: Product.fromFirestore(map['product']),
-      quantity: map['quantity'] ?? 1,
-      priceOverride: (map['priceOverride'] as num?)?.toDouble(),
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'product': product.toFirestore(),
-      'quantity': quantity,
-      'priceOverride': priceOverride,
-    };
-  }
 }

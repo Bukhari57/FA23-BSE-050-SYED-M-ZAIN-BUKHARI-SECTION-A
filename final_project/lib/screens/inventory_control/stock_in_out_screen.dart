@@ -47,7 +47,6 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
       );
 
       final updatedProduct = Product(
-        id: widget.product.id,
         sku: widget.product.sku,
         name: widget.product.name,
         price: widget.product.price,

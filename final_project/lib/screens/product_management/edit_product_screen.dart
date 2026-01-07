@@ -116,7 +116,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     final editedProduct = Product(
-                      id: widget.product.id,
                       sku: _skuController.text,
                       name: _nameController.text,
                       price: double.parse(_priceController.text),

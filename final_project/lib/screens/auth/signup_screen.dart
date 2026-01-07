@@ -27,7 +27,7 @@ class _SignupScreenState extends State<SignupScreen> {
       if (!mounted) return;
       if (user != null) {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const ProductListScreen()),
+          MaterialPageRoute(builder: (context) => ProductListScreen()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
