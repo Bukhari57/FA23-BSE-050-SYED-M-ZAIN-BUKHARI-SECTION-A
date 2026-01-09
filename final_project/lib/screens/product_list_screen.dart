@@ -3,6 +3,7 @@ import 'package:final_project/models/stock_history_model.dart';
 import 'package:final_project/screens/add_edit_product_screen.dart';
 import 'package:final_project/screens/stock_history_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:final_project/models/mock_products.dart';
 
 class ProductListScreen extends StatefulWidget {
   const ProductListScreen({Key? key}) : super(key: key);
@@ -12,11 +13,7 @@ class ProductListScreen extends StatefulWidget {
 }
 
 class _ProductListScreenState extends State<ProductListScreen> {
-  final List<Product> _products = [
-    Product(sku: 'SKU-001', price: 10.0, cost: 5.0, category: 'Category A', quantity: 5, stockHistory: []),
-    Product(sku: 'SKU-002', price: 20.0, cost: 10.0, category: 'Category B', quantity: 12, stockHistory: []),
-    Product(sku: 'SKU-003', price: 30.0, cost: 15.0, category: 'Category A', quantity: 3, stockHistory: []),
-  ];
+  final List<Product> _products = mockProducts;
 
   void _addProduct() async {
     final newProduct = await Navigator.push<Product>(

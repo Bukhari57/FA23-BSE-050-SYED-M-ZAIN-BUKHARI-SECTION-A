@@ -11,7 +11,7 @@ class StockInOutScreen extends StatefulWidget {
   const StockInOutScreen({super.key, required this.product, required this.onStockChanged});
 
   @override
-  _StockInOutScreenState createState() => _StockInOutScreenState();
+  State<StockInOutScreen> createState() => _StockInOutScreenState();
 }
 
 class _StockInOutScreenState extends State<StockInOutScreen> {
@@ -26,39 +26,38 @@ class _StockInOutScreenState extends State<StockInOutScreen> {
       return;
     }
 
-    setState(() {
-      int newStock = widget.product.stock;
-      if (type == 'in') {
-        newStock += quantity;
-      } else {
-        if (quantity > widget.product.stock) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Cannot remove more stock than available')),
-          );
-          return;
-        }
-        newStock -= quantity;
+    int newStock = widget.product.stock;
+    if (type == 'in') {
+      newStock += quantity;
+    } else {
+      if (quantity > widget.product.stock) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Cannot remove more stock than available')),
+        );
+        return;
       }
+      newStock -= quantity;
+    }
 
-      final newHistory = StockHistory(
-        date: DateTime.now(),
-        quantityChange: type == 'in' ? quantity : -quantity,
-        type: type,
-      );
+    final newHistory = StockHistory(
+      date: DateTime.now(),
+      quantityChange: type == 'in' ? quantity : -quantity,
+      type: type,
+    );
 
-      final updatedProduct = Product(
-        sku: widget.product.sku,
-        name: widget.product.name,
-        price: widget.product.price,
-        cost: widget.product.cost,
-        category: widget.product.category,
-        stock: newStock,
-        stockHistory: [newHistory, ...widget.product.stockHistory],
-      );
+    final updatedProduct = Product(
+      id: widget.product.id,
+      sku: widget.product.sku,
+      name: widget.product.name,
+      price: widget.product.price,
+      cost: widget.product.cost,
+      category: widget.product.category,
+      stock: newStock,
+      stockHistory: [newHistory, ...widget.product.stockHistory],
+    );
 
-      widget.onStockChanged(updatedProduct);
-      _quantityController.clear();
-    });
+    widget.onStockChanged(updatedProduct);
+    Navigator.pop(context);
   }
 
   @override

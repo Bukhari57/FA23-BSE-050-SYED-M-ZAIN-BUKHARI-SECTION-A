@@ -1,4 +1,3 @@
-
 import 'package:final_project/services/auth_service.dart';
 import 'package:final_project/screens/product_management/product_list.dart';
 import 'package:flutter/material.dart';
@@ -19,19 +18,25 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void _signup() async {
     if (_formKey.currentState!.validate()) {
-      final user = await _authService.signup(
-        _nameController.text,
-        _emailController.text,
-        _passwordController.text,
-      );
-      if (!mounted) return;
-      if (user != null) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => ProductListScreen()),
+      try {
+        final user = await _authService.signup(
+          _nameController.text,
+          _emailController.text,
+          _passwordController.text,
         );
-      } else {
+        if (!mounted) return;
+        if (user != null) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => ProductListScreen()),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('An unknown error occurred.')),
+          );
+        }
+      } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Email already in use')),
+          SnackBar(content: Text(e.toString())),
         );
       }
     }

@@ -1,17 +1,13 @@
-
-import 'dart:convert';
-
-import 'package:final_project/models/stock_history.dart';
-
 class Product {
-  String? id;
+  int? id;
   String sku;
   String name;
   double price;
   double cost;
   String category;
   int stock;
-  List<StockHistory> stockHistory;
+  int cartQuantity = 0;
+  double discount = 0.0;
 
   Product({
     this.id,
@@ -21,9 +17,9 @@ class Product {
     required this.cost,
     required this.category,
     required this.stock,
-    this.stockHistory = const [],
   });
 
+  // Convert for SQLite
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -33,7 +29,6 @@ class Product {
       'cost': cost,
       'category': category,
       'stock': stock,
-      'stockHistory': jsonEncode(stockHistory.map((e) => e.toMap()).toList()),
     };
   }
 
@@ -46,9 +41,6 @@ class Product {
       cost: map['cost'],
       category: map['category'],
       stock: map['stock'],
-      stockHistory: (jsonDecode(map['stockHistory']) as List)
-          .map((e) => StockHistory.fromMap(e))
-          .toList(),
     );
   }
 }

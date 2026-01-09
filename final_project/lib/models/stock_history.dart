@@ -9,4 +9,20 @@ class StockHistory {
     required this.quantityChange,
     required this.type,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'date': date.toIso8601String(),
+      'quantityChange': quantityChange,
+      'type': type,
+    };
+  }
+
+  factory StockHistory.fromMap(Map<String, dynamic> map) {
+    return StockHistory(
+      date: DateTime.parse(map['date']),
+      quantityChange: map['quantityChange'],
+      type: map['type'],
+    );
+  }
 }
