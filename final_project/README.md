@@ -92,3 +92,19 @@ The app ensures **business continuity** by working even without internet connect
 ---
 
 ## 🧱 Application Architecture
+UI (Flutter Screens)
+        ↓
+State Management (Provider / BLoC / Riverpod)
+        ↓
+Domain Layer (Entities & Use Cases)
+        ↓
+Repository Layer
+     ↓            ↓
+SQLite (Offline)  Cloud API (Online)
+## Demo Video Link
+
+
+https://github.com/user-attachments/assets/558a70d4-6031-455a-8c6c-9863a9420dfd
+
+
+
